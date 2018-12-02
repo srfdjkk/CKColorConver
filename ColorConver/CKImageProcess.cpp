@@ -33,29 +33,29 @@
 //		请参阅 MFC 技术说明 33 和 58。
 //
 
-// CKImageProcessApp
+// CKColorConverApp
 
-BEGIN_MESSAGE_MAP(CKImageProcessApp, CWinApp)
+BEGIN_MESSAGE_MAP(CKColorConverApp, CWinApp)
 END_MESSAGE_MAP()
 
 
-// CKImageProcessApp 构造
+// CKColorConverApp 构造
 
-CKImageProcessApp::CKImageProcessApp()
+CKColorConverApp::CKColorConverApp()
 {
 	// TODO:  在此处添加构造代码，
 	// 将所有重要的初始化放置在 InitInstance 中
 }
 
 
-// 唯一的一个 CKImageProcessApp 对象
+// 唯一的一个 CKColorConverApp 对象
 
-CKImageProcessApp theApp;
+CKColorConverApp theApp;
 
 
-// CKImageProcessApp 初始化
+// CKColorConverApp 初始化
 
-BOOL CKImageProcessApp::InitInstance()
+BOOL CKColorConverApp::InitInstance()
 {
 	CWinApp::InitInstance();
 

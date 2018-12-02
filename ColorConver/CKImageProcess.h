@@ -10,14 +10,14 @@
 #include "resource.h"		// 主符号
 
 
-// CKImageProcessApp
+// CKColorConverApp
 // 有关此类实现的信息，请参阅 GetLocalPicture.cpp
 //
 
-class CKImageProcessApp : public CWinApp
+class CKColorConverApp : public CWinApp
 {
 public:
-	CKImageProcessApp();
+	CKColorConverApp();
 
 // 重写
 public:

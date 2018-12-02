@@ -13,7 +13,7 @@ struct StatePara
 
 using namespace std;
 
-// CKImageProcessDlg 对话框
+// CKColorConverDlg 对话框
 
 typedef struct tagToolGetPicParam {
 	TCHAR	szDocName[MAX_PATH];
@@ -25,13 +25,13 @@ typedef struct tagToolGetPicParam {
 }ToolGetPicParam, *pToolGetPicParam;
 
 
-class CKImageProcessDlg : public CDialogEx
+class CKColorConverDlg : public CDialogEx
 {
-	DECLARE_DYNAMIC(CKImageProcessDlg)
+	DECLARE_DYNAMIC(CKColorConverDlg)
 
 public:
-	CKImageProcessDlg(CWnd* pParent = NULL);   // 标准构造函数
-	virtual ~CKImageProcessDlg();
+	CKColorConverDlg(CWnd* pParent = NULL);   // 标准构造函数
+	virtual ~CKColorConverDlg();
 
 // 对话框数据
 #ifdef AFX_DESIGN_TIME
@@ -60,7 +60,7 @@ public:
 
 	CTabCtrl m_Tab;
 	CPage1 m_Page1;
-	CPage2 m_Page2;
+
 
 	//计消耗算法的时间
 	LARGE_INTEGER m_BeginTime;

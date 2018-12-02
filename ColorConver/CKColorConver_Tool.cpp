@@ -1,8 +1,8 @@
 #include "stdafx.h"
-#include "CKImageProcess_Tool.h"
+#include "CKColorConver_Tool.h"
 
 
-CKImageProcess_Tool::CKImageProcess_Tool(TCHAR * pDocName, int nNodeID, TCHAR * pNodeName)
+CKColorConver_Tool::CKColorConver_Tool(TCHAR * pDocName, int nNodeID, TCHAR * pNodeName)
 {
 	if (_tcslen(pDocName) > 0)
 	{
@@ -18,24 +18,24 @@ CKImageProcess_Tool::CKImageProcess_Tool(TCHAR * pDocName, int nNodeID, TCHAR * 
 }
 
 
-CKImageProcess_Tool::~CKImageProcess_Tool()
+CKColorConver_Tool::~CKColorConver_Tool()
 {
 
 
 }
 
-void CKImageProcess_Tool::Save(CArchive &ar)
+void CKColorConver_Tool::Save(CArchive &ar)
 {
 
 }
-void CKImageProcess_Tool::Load(CArchive &ar)
+void CKColorConver_Tool::Load(CArchive &ar)
 {
 	CString str;
 
 }
-void CKImageProcess_Tool::ShowPropertyDialog()
+void CKColorConver_Tool::ShowPropertyDialog()
 {
-	CKImageProcessDlg dlg;
+	CKColorConverDlg dlg;
 	//dlg.m_GLPP = m_GetLocalPictureParam;
 	dlg.DoModal();
 	//m_GetLocalPictureParam = dlg.m_GLPP;
@@ -44,12 +44,12 @@ void CKImageProcess_Tool::ShowPropertyDialog()
 
 	DoCreate();
 }
-void CKImageProcess_Tool::Do()
+void CKColorConver_Tool::Do()
 {
 	DoCreate();
 }
 
-void CKImageProcess_Tool::DoCreate()
+void CKColorConver_Tool::DoCreate()
 {
 
 }
@@ -60,7 +60,7 @@ void CKImageProcess_Tool::DoCreate()
 *parameter  :	нч
 *return		:	void
 ************************************************************/
-void CKImageProcess_Tool::SetImageParamByCPImage(ImageParam* pImageParam, CPrImage* pho_Img)
+void CKColorConver_Tool::SetImageParamByCPImage(ImageParam* pImageParam, CPrImage* pho_Img)
 {
 
 	pImageParam->m_nChannel = pho_Img->GetFormat();
@@ -78,7 +78,7 @@ void CKImageProcess_Tool::SetImageParamByCPImage(ImageParam* pImageParam, CPrIma
 *parameter  :	нч
 *return		:	void
 ************************************************************/
-void CKImageProcess_Tool::SetImageParamByCImage(ImageParam* pImageParam, CImage* pho_Img)
+void CKColorConver_Tool::SetImageParamByCImage(ImageParam* pImageParam, CImage* pho_Img)
 {
 	int ImageFormat = pho_Img->GetBPP();
 	if (ImageFormat = 8)
@@ -97,7 +97,7 @@ void CKImageProcess_Tool::SetImageParamByCImage(ImageParam* pImageParam, CImage*
 
 }
 
-void CKImageProcess_Tool::ReadpCharA(CArchive &ar, TCHAR* pchar)
+void CKColorConver_Tool::ReadpCharA(CArchive &ar, TCHAR* pchar)
 {
 	//USES_CONVERSION;
 	CString strRd;
@@ -105,20 +105,20 @@ void CKImageProcess_Tool::ReadpCharA(CArchive &ar, TCHAR* pchar)
 	_tcscpy_s(pchar,256, strRd.GetBuffer());
 }
 
-void CKImageProcess_Tool::ReadDouble(CArchive &ar, double& dbVal)
+void CKColorConver_Tool::ReadDouble(CArchive &ar, double& dbVal)
 {
 	CString str;
 	ar.ReadString(str);
 	dbVal = _wtof(str.GetBuffer());
 }
 
-void CKImageProcess_Tool::WritepCharA(CArchive &ar, TCHAR* pchar)
+void CKColorConver_Tool::WritepCharA(CArchive &ar, TCHAR* pchar)
 {
 	CString strWt(pchar);
 	ar.WriteString(strWt + _T("\r\n"));
 }
 
-void CKImageProcess_Tool::WriteDouble(CArchive &ar, double dbVal)
+void CKColorConver_Tool::WriteDouble(CArchive &ar, double dbVal)
 {
 	CString str;
 	str.Format(_T("%lf"), dbVal);
@@ -126,7 +126,7 @@ void CKImageProcess_Tool::WriteDouble(CArchive &ar, double dbVal)
 }
 
 
-void CKImageProcess_Tool::LoadBmpJpgImage(IMG_TYPE ImgType,CString Path)
+void CKColorConver_Tool::LoadBmpJpgImage(IMG_TYPE ImgType,CString Path)
 {
 	if (ImgType == IMG_JPG)
 	{

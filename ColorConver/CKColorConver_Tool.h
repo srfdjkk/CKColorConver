@@ -1,6 +1,6 @@
 #pragma once
 #include "Tool.h"
-#include "CKImageProcessDlg.h"
+#include "CKColorConverDlg.h"
 
 
 //参数信息结构体
@@ -15,11 +15,11 @@ typedef struct stt_Param {
 
 
 
-class CKImageProcess_Tool
+class CKColorConver_Tool
 {
 public:
-	CKImageProcess_Tool(TCHAR * pDocName, int nNodeID, TCHAR * pNodeName);
-	~CKImageProcess_Tool();
+	CKColorConver_Tool(TCHAR * pDocName, int nNodeID, TCHAR * pNodeName);
+	~CKColorConver_Tool();
 	//重写构造函数
 	void Save(CArchive &ar);
 	void Load(CArchive &ar);
@@ -34,7 +34,7 @@ public:
 	void SetImageParamByCPImage(ImageParam* pImageParam, CPrImage* pho_Img);
 	void SetImageParamByCImage(ImageParam* pImageParam, CImage* pho_Img);
 
-	void CKImageProcess_Tool::LoadBmpJpgImage(IMG_TYPE ImgType, CString Path);
+	void CKColorConver_Tool::LoadBmpJpgImage(IMG_TYPE ImgType, CString Path);
 
 
 	CPrImage m_Image;	//

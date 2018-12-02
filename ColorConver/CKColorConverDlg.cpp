@@ -3,52 +3,51 @@
 
 #include "stdafx.h"
 #include "CKImageProcess.h"
-#include "CKImageProcessDlg.h"
+#include "CKColorConverDlg.h"
 #include "afxdialogex.h"
 #include <atlimage.h>
 #include <gdiplus.h>
 #include "ToolControl.h"
 
-CKImageProcessDlg* pCKImageProcessDlg = NULL;
+CKColorConverDlg* pCKColorConverDlg = NULL;
 using namespace Gdiplus;
-IMPLEMENT_DYNAMIC(CKImageProcessDlg, CDialogEx)
+IMPLEMENT_DYNAMIC(CKColorConverDlg, CDialogEx)
 
-CKImageProcessDlg::CKImageProcessDlg(CWnd* pParent /*=NULL*/)
+CKColorConverDlg::CKColorConverDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_DIALOG, pParent)
 {
-	pCKImageProcessDlg = this;
+	pCKColorConverDlg = this;
 
 }
 
-CKImageProcessDlg::~CKImageProcessDlg()
+CKColorConverDlg::~CKColorConverDlg()
 {
 
 }
 
-void CKImageProcessDlg::DoDataExchange(CDataExchange* pDX)
+void CKColorConverDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
 
 	DDX_Control(pDX, IDC_TAB1, m_Tab);
 }
 
-BEGIN_MESSAGE_MAP(CKImageProcessDlg, CDialogEx)
+BEGIN_MESSAGE_MAP(CKColorConverDlg, CDialogEx)
 	ON_WM_DESTROY()
-	ON_NOTIFY(TCN_SELCHANGE, IDC_TAB1, &CKImageProcessDlg::OnTcnSelchangeTab1)
-	ON_BN_CLICKED(IDC_BTN_OK, &CKImageProcessDlg::OnBnClickedBtnOk)
-	ON_BN_CLICKED(IDC_BTN_CANCLE, &CKImageProcessDlg::OnBnClickedBtnCancle)
+	ON_NOTIFY(TCN_SELCHANGE, IDC_TAB1, &CKColorConverDlg::OnTcnSelchangeTab1)
+	ON_BN_CLICKED(IDC_BTN_OK, &CKColorConverDlg::OnBnClickedBtnOk)
+	ON_BN_CLICKED(IDC_BTN_CANCLE, &CKColorConverDlg::OnBnClickedBtnCancle)
 END_MESSAGE_MAP()
 
-BOOL CKImageProcessDlg::OnInitDialog()
+BOOL CKColorConverDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 	// TODO:  在此添加额外的初始化
 	//选项卡初始化
 	m_Tab.InsertItem(0, _T("基本设置"));
-	m_Tab.InsertItem(1, _T("参数设置"));
 
 	m_Page1.Create(IDD_PAGE1, GetDlgItem(IDC_TAB1));
-	m_Page2.Create(IDD_PAGE2, GetDlgItem(IDC_TAB1));
+
 
 	//获得IDC_TABTEST客户区大小 
 	CRect rs;
@@ -61,11 +60,11 @@ BOOL CKImageProcessDlg::OnInitDialog()
 
 	//设置子对话框尺寸并移动到指定位置 
 	m_Page1.MoveWindow(&rs);
-	m_Page2.MoveWindow(&rs);
+
 
 	//分别设置隐藏和显示 
 	m_Page1.ShowWindow(true);
-	m_Page2.ShowWindow(false);
+
 	//设置默认的选项卡 
 	m_Tab.SetCurSel(0);
 
@@ -85,22 +84,6 @@ BOOL CKImageProcessDlg::OnInitDialog()
 	m_Overlay.AddItem(&m_sRectROI);
 	m_Overlay.AddItem(&m_sRotBoxROI);
 
-	//搜索矩形初始化
-	m_sRectROI.left = 100;
-	m_sRectROI.top = 100;
-	m_sRectROI.right = 500;
-	m_sRectROI.bottom = 400;
-	m_sRectROI.SetPenColor(RGB(255, 0, 0));
-	m_sRectROI.SetVisible(false);
-
-	//搜索旋转矩阵初始化
-	m_sRotBoxROI.center.x = 100;
-	m_sRotBoxROI.center.y = 100;
-	m_sRotBoxROI.width = 100;
-	m_sRotBoxROI.height = 100;
-	m_sRotBoxROI.angle = 60;
-	m_sRotBoxROI.SetPenColor(RGB(255, 0, 0));
-	m_sRotBoxROI.SetVisible(false);
 
 	UpdateData();
 
@@ -111,7 +94,7 @@ BOOL CKImageProcessDlg::OnInitDialog()
 
 
 
-void CKImageProcessDlg::OnDestroy()
+void CKColorConverDlg::OnDestroy()
 {
 	CDialogEx::OnDestroy();
 }
@@ -131,14 +114,14 @@ void CKImageProcessDlg::OnDestroy()
 *parameter  :	无
 *return		:	void
 ************************************************************/
-void CKImageProcessDlg::OnBnClickedOKButton()
+void CKColorConverDlg::OnBnClickedOKButton()
 {
 
-	CKImageProcessDlg::OnOK();
+	CKColorConverDlg::OnOK();
 }
 
 
-void CKImageProcessDlg::OnTcnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult)
+void CKColorConverDlg::OnTcnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult)
 {
 	// TODO: 在此添加控件通知处理程序代码
 	int CurSel = m_Tab.GetCurSel();
@@ -146,12 +129,12 @@ void CKImageProcessDlg::OnTcnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult)
 	{
 	case 0:
 		m_Page1.ShowWindow(true);
-		m_Page2.ShowWindow(false);
+	
 
 		break;
 	case 1:
 		m_Page1.ShowWindow(false);
-		m_Page2.ShowWindow(true);
+
 		break;
 
 	default:
@@ -163,7 +146,7 @@ void CKImageProcessDlg::OnTcnSelchangeTab1(NMHDR *pNMHDR, LRESULT *pResult)
 
 
 
-void CKImageProcessDlg::OnBnClickedBtnOk()
+void CKColorConverDlg::OnBnClickedBtnOk()
 {
 	// TODO: 在此添加控件通知处理程序代码
 
@@ -171,7 +154,7 @@ void CKImageProcessDlg::OnBnClickedBtnOk()
 }
 
 
-void CKImageProcessDlg::OnBnClickedBtnCancle()
+void CKColorConverDlg::OnBnClickedBtnCancle()
 {
 	// TODO: 在此添加控件通知处理程序代码
 

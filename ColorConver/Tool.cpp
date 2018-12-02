@@ -1,8 +1,8 @@
 #include "StdAfx.h"
 #include "Tool.h"
 #include "ToolControl.h"
-#include "CKImageProcess_Tool.h"
-#include "CKImageProcessDlg.h"
+#include "CKColorConver_Tool.h"
+#include "CKColorConverDlg.h"
 
 fHIDBCreatesLink		HIDBCreatesLink;
 fHIDBDeleteLink			HIDBDeleteLink;
@@ -37,7 +37,7 @@ fHIDBDeleteBuf			HIDBDeleteBuf;
 int GetGUID(TCHAR *szGuid)
 {
 	//_tcscpy_s(szGuid, MAX_PATH, _T("2CA9B08A-B6AA-40B4-91B2-D6494220D080"));
-	_tcscpy_s(szGuid, MAX_PATH, _T("2CA9B08A-B6AA-40B4-91B2-D6494220D083"));
+	_tcscpy_s(szGuid, MAX_PATH, _T("2CA9B08A-B6AA-40B4-91B2-D6494220D084"));
 	return 0;
 }
 int GetCallFun(int nType, void **pParam)
@@ -219,7 +219,7 @@ void Copy(void* pDst,void* pSrc)
 
 void GetToolName(TCHAR* szName)
 {
-	_tcscpy_s(szName, MAX_PATH, _T("预处理(CK版)"));
+	_tcscpy_s(szName, MAX_PATH, _T("彩色转灰度(CK版)"));
 }
 
 void GetToolType(TCHAR* szType)
@@ -229,13 +229,13 @@ void GetToolType(TCHAR* szType)
 
 void Save(CArchive &ar, void *pToolParam)
 {
-	CKImageProcess_Tool* p = (CKImageProcess_Tool*)pToolParam;
+	CKColorConver_Tool* p = (CKColorConver_Tool*)pToolParam;
 	p->Save(ar);
 }
 
 void Load(CArchive &ar, void *pToolParam)
 {
-	CKImageProcess_Tool* p = (CKImageProcess_Tool*)pToolParam;
+	CKColorConver_Tool* p = (CKColorConver_Tool*)pToolParam;
 	p->Load(ar);
 }
 
@@ -243,7 +243,7 @@ int Do(void * pControlPara)
 {
 	ControlParam* pCtrl=(ControlParam*)pControlPara;
 	void* pToolParam = pCtrl->pToolParam;
-	CKImageProcess_Tool* p = (CKImageProcess_Tool*)pToolParam;
+	CKColorConver_Tool* p = (CKColorConver_Tool*)pToolParam;
 	p->Do();
 
 	return 0;
@@ -254,7 +254,7 @@ int CreateTool(TCHAR * pDocName, int nNodeID, TCHAR * pNodeName, void** pToolPar
 {
 	if (*pToolParam == nullptr)
 	{
-		CKImageProcess_Tool* p = new CKImageProcess_Tool(pDocName, nNodeID, pNodeName);
+		CKColorConver_Tool* p = new CKColorConver_Tool(pDocName, nNodeID, pNodeName);
 		*pToolParam = p;
 	//int err;
 	//err = HIDBCreatesLink(pDocName, nNodeID, pNodeName, "原图像", NODETYPE_PIMAGE);
@@ -288,7 +288,7 @@ int CreateTool(TCHAR * pDocName, int nNodeID, TCHAR * pNodeName, void** pToolPar
 CDialog* ShowPropertyDialog(CWnd* pParent, void * pToolParam)
 {
 
-	CKImageProcess_Tool* p = (CKImageProcess_Tool*)pToolParam;
+	CKColorConver_Tool* p = (CKColorConver_Tool*)pToolParam;
 	p->ShowPropertyDialog();
 
 	return NULL;
@@ -297,7 +297,7 @@ CDialog* ShowPropertyDialog(CWnd* pParent, void * pToolParam)
 
 int DeleteTool(TCHAR* pDocName, int nNodeID, TCHAR* pNodeName, void* pToolParam)
 {
-	CKImageProcess_Tool* p = (CKImageProcess_Tool*)pToolParam;
+	CKColorConver_Tool* p = (CKColorConver_Tool*)pToolParam;
 	delete p;
 
 	return 0;

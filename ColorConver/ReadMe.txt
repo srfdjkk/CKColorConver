@@ -14,10 +14,10 @@ GetLocalPicture.vcxproj.filters
     这是使用“应用程序向导”生成的 VC++ 项目筛选器文件。它包含有关项目文件与筛选器之间的关联信息。在 IDE 中，通过这种关联，在特定节点下以分组形式显示具有相似扩展名的文件。例如，“.cpp”文件与“源文件”筛选器关联。
 
 GetLocalPicture.h
-    这是 DLL 的主头文件。它声明了 CKImageProcessApp 类。
+    这是 DLL 的主头文件。它声明了 CKColorConverApp 类。
 
 GetLocalPicture.cpp
-    这是主 DLL 源文件。它包含 CKImageProcessApp 类。
+    这是主 DLL 源文件。它包含 CKColorConverApp 类。
 
 GetLocalPicture.rc
     这是程序使用的所有 Microsoft Windows 资源的列表。它包括 RES 子目录中存储的图标、位图和光标。此文件可以直接在 Microsoft Visual C++ 中进行编辑。

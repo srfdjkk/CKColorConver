@@ -27,16 +27,16 @@
     <ClCompile Include="CKImageProcess.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="CKImageProcessDlg.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="CKImageProcess_Tool.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="CPage1.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="CPage2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CKColorConver_Tool.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CKColorConverDlg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,16 +59,16 @@
     <ClInclude Include="CKImageProcess.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="CKImageProcessDlg.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="CKImageProcess_Tool.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="CPage1.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="CPage2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CKColorConver_Tool.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CKColorConverDlg.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -76,12 +76,12 @@
     <None Include="CKImageProcess.def">
       <Filter>源文件</Filter>
     </None>
-    <None Include="CKImageProcess.rc2">
+    <None Include="CKColorConver.rc2">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="CKImageProcess.rc">
+    <ResourceCompile Include="CKColorConver.rc">
       <Filter>资源文件</Filter>
     </ResourceCompile>
   </ItemGroup>
